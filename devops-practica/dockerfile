@@ -1,0 +1,16 @@
+# Imagen base
+FROM python:3.9
+
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos al contenedor
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+
+# Puerto
+EXPOSE 5000
+
+# Comando de inicio
+CMD ["python", "app.py"]
